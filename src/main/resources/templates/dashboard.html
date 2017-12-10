@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Pragma Brewery</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<h1>Hello Shayne,</h1>
+
+<ul>
+    <li th:each="message : ${messages}" th:text="${message}" />
+</ul>
+
+<div class="panel panel-default col-sm-4" th:each="container: ${monitor.containerList}">
+    <div class="panel-heading">
+        <output th:text="'Container ' + ${container.id}"></output>
+    </div>
+    <div class="panel-body">
+        <output th:text="'Temperature: ' + ${container.currentlyTemperature}"></output>
+        <ul>
+            <li th:each="beer : ${container.beers}" th:text="${beer.name}" />
+        </ul>
+    </div>
+    <div class="btn-group pull-right">
+        <a class="btn btn-sm btn-primary" th:href="@{/editContainer/{id}(id=${container.id})}" >Edit</a>
+    </div>
+</div>
+
+
+</body>
+</html>
