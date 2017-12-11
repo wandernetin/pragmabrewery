@@ -10,20 +10,22 @@
 </head>
 <body>
 
-<h1>Hello Shayne,</h1>
-
-<ul>
-    <li th:each="message : ${messages}" th:text="${message}" />
-</ul>
+<h1 class="display-4">Hello Shayne,</h1>
+<fieldset>
+    <ul>
+        <li class="text-danger" th:each="message : ${messages}" th:text="${message}" />
+    </ul>
+</fieldset>
 
 <div class="panel panel-default col-sm-4" th:each="container: ${monitor.containerList}">
     <div class="panel-heading">
-        <output th:text="'Container ' + ${container.id}"></output>
+        <output class="text-success" th:text="'Container ' + ${container.id}"></output>
     </div>
     <div class="panel-body">
-        <output th:text="'Temperature: ' + ${container.currentlyTemperature}"></output>
+        <output class="text-info" th:text="'Temperature: ' + ${container.currentlyTemperature}"></output>
+        <output class="text-info" th:text="'Beers: '"></output>
         <ul>
-            <li th:each="beer : ${container.beers}" th:text="${beer.name}" />
+            <li class="text-info" th:each="beer : ${container.beers}" th:text="${beer.name}" />
         </ul>
     </div>
     <div class="btn-group pull-right">

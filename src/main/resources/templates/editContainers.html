@@ -13,21 +13,17 @@
     <div class="panel-heading">
         <strong>Container</strong>
     </div>
-    <div class="panel-body">
+    <div class="panel-body col-sm-4">
         <form class="form-horizontal" th:object="${container}" th:action="@{/saveContainer/{id}(id=${container.id})}" method="POST" style="margin: 10px">
-            <div class="form-group">
-                <fieldset>
-                    <div class="form-group row">
-                        <label>Beers</label>
-                        <ul>
-                            <li th:each="beer : ${beers}">
-                                <input type="checkbox" th:field="*{beers}" th:value="${beer}"></input>
-                                <label th:text="${beer.name}">Test</label>
-                            </li>
-                        </ul>
-                    </div>
-                </fieldset>
-            </div>
+            <div class="form-group row">
+                <label>Beers</label>
+                    <ul>
+                        <li th:each="beer : ${beers}">
+                            <input type="checkbox" th:field="*{beers}" th:value="${beer}"></input>
+                            <label th:text="${beer.name}">Test</label>
+                        </li>
+                    </ul>
+                </div>
             <div class="form-group row">
                 <button type="submit" class="btn btn-sm btn-primary">Save</button>
                 <a th:href="@{/}" class="btn btn-sm btn-default">Cancel</a>
