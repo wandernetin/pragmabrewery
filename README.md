@@ -8,6 +8,7 @@ Technologies used in this Project:
 4. Thymeleaf
 5. JUnit
 6. JavaScript
+7. BootStrap
 
 How to run using the maven plugin:
 $ mvn spring-boot:run
