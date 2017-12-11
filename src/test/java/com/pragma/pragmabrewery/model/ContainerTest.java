@@ -1,23 +1,25 @@
 package com.pragma.pragmabrewery.model;
 
-
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Wander on 09/12/2017.
+ * Class represent Container Test.
+ */
 public class ContainerTest {
 
-
+    //Containers that will be used to tests.
     Container container1;
     Container container2;
     Container container3;
     Container container4;
 
-
+    // Execute this method before the tests. This method initialize variables that will be used in tests.
     @Before
     public void initializeVariables() {
         List<BeerEnum> list = new ArrayList<BeerEnum>();
@@ -43,5 +45,4 @@ public class ContainerTest {
         assertEquals("String must be 'IPA ; Pilsen ; Wheat Beer'", "IPA ; Pilsen ; Wheat Beer", container1.whichBeersAreOutOfRange());
         assertEquals("String must be 'Wheat Beer'", "Wheat Beer", container4.whichBeersAreOutOfRange());
     }
-
 }

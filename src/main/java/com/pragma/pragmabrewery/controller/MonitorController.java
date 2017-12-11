@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
+ * Created by Wander on 09/12/2017.
  * Class MonitorController.
  * Controller for dashboard.html
  */
@@ -26,6 +27,7 @@ public class MonitorController {
     @GetMapping("/")
     public ModelAndView home() {
         ModelAndView mv = new ModelAndView("/dashboard");
+        // if monitor was not created, create a new one
         if (monitor == null) {
             monitor = monitorService.createMonitor();
         } else {
@@ -36,15 +38,14 @@ public class MonitorController {
         return mv;
     }
 
-
     @GetMapping("/addContainer")
     public ModelAndView add(Container container) {
-
         ModelAndView mv = new ModelAndView("/editContainers");
         mv.addObject("beers", BeerEnum.values());
         mv.addObject("container", container);
         return mv;
     }
+
     @GetMapping("/editContainer/{id}")
     public ModelAndView edit(@PathVariable("id") int id) {
         return add(monitor.getContainerList().get(id - 1));
@@ -52,7 +53,7 @@ public class MonitorController {
 
     @PostMapping("/saveContainer/{id}")
     public ModelAndView save(@PathVariable("id") int id, Container container) {
-        monitor.getContainerList().get(id - 1).setBeers(container.getBeers());
+        monitor.getContainerList().get(id).setBeers(container.getBeers());
         return home();
     }
 }

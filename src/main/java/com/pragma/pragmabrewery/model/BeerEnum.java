@@ -42,7 +42,10 @@ public enum BeerEnum {
         return maxRange;
     }
 
+    //Method that verify if this beer temperature is out of range.
     public boolean isTempInRange(int temp) {
+        // if currently temperature is bigger than max range
+        // or smaller than min range, return false cause is out of range
         if (temp > getMaxRange() ||
                 temp < getMinRange()) {
             return false;

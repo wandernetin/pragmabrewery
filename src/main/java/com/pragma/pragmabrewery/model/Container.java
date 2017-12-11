@@ -2,6 +2,10 @@ package com.pragma.pragmabrewery.model;
 
 import java.util.List;
 
+/**
+ * Created by Wander on 09/12/2017.
+ * Class that represents a container.
+ */
 public class Container {
 
     private int id;
@@ -43,10 +47,14 @@ public class Container {
         this.beers = beers;
     }
 
+    //Method that verify if all beers are in their range.
     public Boolean isTempInRange() {
+        //if there is no beer in container, so return true.
         if(beers == null) {
             return true;
         }
+        // if there is one or more beer, verify each one and if there is one
+        // out of range, so return false.
         for (BeerEnum beer: beers) {
             if (!beer.isTempInRange(currentlyTemperature)) {
                 return false;
@@ -55,6 +63,7 @@ public class Container {
         return true;
     }
 
+    //Method that return a String with which beers are out of range. Using to build messages.
     public String whichBeersAreOutOfRange() {
         String result = "";
         for (BeerEnum beer: beers) {

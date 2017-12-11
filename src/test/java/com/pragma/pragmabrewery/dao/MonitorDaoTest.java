@@ -5,10 +5,12 @@ import static org.junit.Assert.*;
 
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
 
+/**
+ * Created by Wander on 09/12/2017.
+ * Class represent MonitorDao Test.
+ */
 @RunWith(MockitoJUnitRunner.class)
 public class MonitorDaoTest {
 
