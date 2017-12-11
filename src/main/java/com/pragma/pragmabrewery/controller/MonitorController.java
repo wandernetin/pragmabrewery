@@ -48,7 +48,7 @@ public class MonitorController {
 
     @GetMapping("/editContainer/{id}")
     public ModelAndView edit(@PathVariable("id") int id) {
-        return add(monitor.getContainerList().get(id - 1));
+        return add(monitor.getContainerList().get(id));
     }
 
     @PostMapping("/saveContainer/{id}")
