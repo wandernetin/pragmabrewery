@@ -25,7 +25,8 @@ public class MonitorService {
         List<String> messagesList = new ArrayList<String>();
         for (Container container: monitor.getContainerList()) {
             if(!container.isTempInRange()) {
-                messagesList.add("Container: " + container.getId() + " is out of range.");
+                messagesList.add("Container number " + container.getId()
+                        + " is out of range for: " + container.whichBeersAreOutOfRange());
             }
         }
         return messagesList;

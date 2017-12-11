@@ -19,6 +19,14 @@ public class Container {
 
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getCurrentlyTemperature() {
         return currentlyTemperature;
     }
@@ -47,11 +55,13 @@ public class Container {
         return true;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public String whichBeersAreOutOfRange() {
+        String result = "";
+        for (BeerEnum beer: beers) {
+            if (!beer.isTempInRange(currentlyTemperature)) {
+                result = (result.length() > 0) ? result + " ; " + beer.getName() :  result + beer.getName();
+            }
+        }
+        return result;
     }
 }
